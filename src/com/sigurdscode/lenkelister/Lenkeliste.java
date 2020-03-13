@@ -1,15 +1,11 @@
 package com.sigurdscode.lenkelister;
 
-public class Lenkeliste<T> implements Liste<T> {
-    class Node{
-        public Node neste; //Oppretter en neste node peker
-        public Node forrige; //Oppretter en forrige Node peker
-        public T data;
 
-        public Node(T x){ //konstruktør til klassen Node.
-            data = x;
-        }
-    }
+import java.util.Iterator;
+
+public class Lenkeliste<T> implements Liste<T>{
+
+
     Node hode = new Node(null); //start (eldste element O*** =>)
     Node hale = new Node(null); // nyeste element (***O)
     int antallNoder;//Ikke private nå da jeg kan sjekke antall noder i listen med .antallNoder
@@ -19,6 +15,7 @@ public class Lenkeliste<T> implements Liste<T> {
         hale.forrige = hode;//halens forrige peler til å peke på hodet
         antallNoder = 0; //antall elementer lik 0
     }
+
 
     public int stoerrelse(){ //Sjekker gjennom lista og teller så lenge hode av listen ikke er lik halen.
         int count = 0;
@@ -103,5 +100,38 @@ public class Lenkeliste<T> implements Liste<T> {
             }
         }else{ throw new UgyldigListeIndex(pos);}
         return temp.data;
+    }
+    protected class Node{
+        public Node neste; //Oppretter en neste node peker
+        public Node forrige; //Oppretter en forrige Node peker
+        public T data;
+
+        public Node(T x){ //konstruktør til klassen Node.
+            data = x;
+        }
+    }
+
+    public Iterator<T> iterator(){
+        return new LenkelisteIterator();
+    }
+    private class LenkelisteIterator implements Iterator<T> {
+
+        private Node temp;
+        LenkelisteIterator(){
+            temp = hode;
+        }
+
+        public boolean hasNext(){
+            return temp.neste != hale;
+        }
+
+        public T next(){
+            temp = temp.neste;
+            T data = temp.data;
+            return data;
+        }
+
+        public void remove(){
+        }
     }
 }

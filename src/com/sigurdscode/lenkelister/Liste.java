@@ -1,6 +1,6 @@
 package com.sigurdscode.lenkelister;
 
-public interface Liste<T>{
+public interface Liste<T> extends Iterable<T>{
     public int stoerrelse();
     public void leggTil(int pos, T x);
     public void leggTil(T x);

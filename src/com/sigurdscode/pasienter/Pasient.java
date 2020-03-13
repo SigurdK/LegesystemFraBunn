@@ -20,6 +20,9 @@ public class Pasient {
     public String hentNavn() {
         return navn;
     }
+    public int hentID() {
+        return ID;
+    }
 
     public void leggTilResept(Resept r){
             stabel.leggPaa(r);
