@@ -1,4 +1,4 @@
-package com.sigurdscode;
+package com.sigurdscod
 
 import com.sigurdscode.legemiddler.Legemiddel;
 import com.sigurdscode.legemiddler.Narkotisk;
