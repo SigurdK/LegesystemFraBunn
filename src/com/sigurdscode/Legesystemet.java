@@ -44,23 +44,23 @@ public class Legesystemet {
 
         Scanner fil = new Scanner(new File(filnavn));
         String linje = "";
-        String sjanger = "Pasienter";
+        String sjanger = "";
 
         while (fil.hasNextLine()) {
-            fil.nextLine();
+            if (fil.hasNextLine()){
+               sjanger =  fil.nextLine().split(" ")[1];
+            }
+
 
             if (sjanger.equals("Pasienter")) {
-                while (!linje.equals("Legemidler")) {
+                while (!fil.hasNext("#")) {
                     String[] linje2 = fil.nextLine().split(",");
-                    if (fil.hasNext("#")) {
-                        linje = "Legemidler";
-                        sjanger = "Legemidler";
-                    }
+
                     Pasient pasient = new Pasient(linje2[0], linje2[1]);
                     pasientene.leggTil(pasient);
                 }
 
-            }if (sjanger.equals("Legemidler")) {
+            }else if (sjanger.equals("Legemidler")) {
                 fil.nextLine();
                 while (linje != "Leger"){
                     String[] linje2 = fil.nextLine().split(",");
@@ -90,14 +90,11 @@ public class Legesystemet {
                             break;
                     }
                 }
-            }if (sjanger.equals("Leger")){
+            }else if (sjanger.equals("Leger")){
                 fil.nextLine();
                 while (!linje.equals("Resepter")){
                     String[] linje2 = fil.nextLine().split(",");
-                    if (fil.hasNext("#")) {
-                        linje = "Resepter";
-                        sjanger ="Resepter";
-                    }
+
                     String navn = linje2[0];
                     int kontrollID = Integer.parseInt(linje2[1]);
                     if (kontrollID==0){
@@ -108,58 +105,60 @@ public class Legesystemet {
                         legene.leggTil(spesialist);
                     }
                 }
-            }
-            fil.nextLine();
-            while (fil.hasNextLine()){
-                String[] linje2 = fil.nextLine().split(",");
-                String navn = linje2[1];
-                int pasientID = Integer.parseInt(linje2[2]);
-                String type = linje2[3];
+            }else if{
+                fil.nextLine();
+                while (fil.hasNextLine()){
+                    String[] linje2 = fil.nextLine().split(",");
+                    String navn = linje2[1];
+                    int pasientID = Integer.parseInt(linje2[2]);
+                    String type = linje2[3];
 
-                int reit=0;
-                if (!(type.equals("p"))){ //opprette en throw ecxeption
-                    reit = Integer.parseInt(linje2[4]);
-                }
-                int legemiddelNummer = Integer.parseInt(linje2[0]);
+                    int reit=0;
+                    if (!(type.equals("p"))){ //opprette en throw ecxeption
+                        reit = Integer.parseInt(linje2[4]);
+                    }
+                    int legemiddelNummer = Integer.parseInt(linje2[0]);
 
-                Lege legen = null;
-                Pasient pasienten = null;
-                Legemiddel legemiddelet = null;
+                    Lege legen = null;
+                    Pasient pasienten = null;
+                    Legemiddel legemiddelet = null;
 
-                for (Lege lege : legene){
-                    if (navn.equals(lege.hentNavn())){
-                        legen = lege;
-                            }
+                    for (Lege lege : legene){
+                        if (navn.equals(lege.hentNavn())){
+                            legen = lege;
                         }
-                for (Pasient pasient : pasientene){
-                    if (pasientID == pasient.hentID()){
-                        pasienten = pasient;
                     }
-                }
-                for (Legemiddel legemiddel : legemiddlene){
-                    if (legemiddelNummer == legemiddel.hentId()){
-                        legemiddelet = legemiddel;
+                    for (Pasient pasient : pasientene){
+                        if (pasientID == pasient.hentID()){
+                            pasienten = pasient;
+                        }
                     }
-                }
-                switch (type) {
-                    case "hvit":
-                        assert legen != null;
-                        legen.skrivHvitResept(legemiddelet, pasienten, reit);
-                        break;
-                    case "blaa":
-                        assert legen != null;
-                        legen.skrivBlaaResept(legemiddelet, pasienten, reit);
-                        break;
-                    case "millitaer":
-                        assert legen != null;
-                        legen.skrivMillitaerResept(legemiddelet, pasienten, reit);
-                        break;
-                    case "p":
-                        assert legen != null;
-                        legen.skrivPResept(legemiddelet, pasienten);
-                        break;
+                    for (Legemiddel legemiddel : legemiddlene){
+                        if (legemiddelNummer == legemiddel.hentId()){
+                            legemiddelet = legemiddel;
+                        }
+                    }
+                    switch (type) {
+                        case "hvit":
+                            assert legen != null;
+                            legen.skrivHvitResept(legemiddelet, pasienten, reit);
+                            break;
+                        case "blaa":
+                            assert legen != null;
+                            legen.skrivBlaaResept(legemiddelet, pasienten, reit);
+                            break;
+                        case "millitaer":
+                            assert legen != null;
+                            legen.skrivMillitaerResept(legemiddelet, pasienten, reit);
+                            break;
+                        case "p":
+                            assert legen != null;
+                            legen.skrivPResept(legemiddelet, pasienten);
+                            break;
+                    }
                 }
             }
+
         }
     }
 }
