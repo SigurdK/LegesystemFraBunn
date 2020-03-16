@@ -43,7 +43,6 @@ public class Legesystemet {
     public void leseFraFil(String filnavn) throws Exception{
 
         Scanner fil = new Scanner(new File(filnavn));
-        String linje = "";
         String sjanger = "";
 
         while (fil.hasNextLine()) {
@@ -53,22 +52,17 @@ public class Legesystemet {
 
 
             if (sjanger.equals("Pasienter")) {
+
                 while (!fil.hasNext("#")) {
                     String[] linje2 = fil.nextLine().split(",");
-
                     Pasient pasient = new Pasient(linje2[0], linje2[1]);
                     pasientene.leggTil(pasient);
                 }
 
             }else if (sjanger.equals("Legemidler")) {
-                fil.nextLine();
-                while (linje != "Leger"){
-                    String[] linje2 = fil.nextLine().split(",");
-                    if (fil.hasNext("#")) {
-                        linje = "Leger";
-                        sjanger = "Leger";
-                    }
 
+                while (!fil.hasNext("#")){
+                    String[] linje2 = fil.nextLine().split(",");
                     String navn = linje2[0];
                     int pris = Integer.parseInt(linje2[2]);
                     int virkestoff = Integer.parseInt(linje2[3]);
@@ -91,10 +85,9 @@ public class Legesystemet {
                     }
                 }
             }else if (sjanger.equals("Leger")){
-                fil.nextLine();
-                while (!linje.equals("Resepter")){
-                    String[] linje2 = fil.nextLine().split(",");
 
+                while (!fil.hasNext("#")){
+                    String[] linje2 = fil.nextLine().split(",");
                     String navn = linje2[0];
                     int kontrollID = Integer.parseInt(linje2[1]);
                     if (kontrollID==0){
@@ -105,8 +98,7 @@ public class Legesystemet {
                         legene.leggTil(spesialist);
                     }
                 }
-            }else if{
-                fil.nextLine();
+            }else if(sjanger.equals("Resepter")){
                 while (fil.hasNextLine()){
                     String[] linje2 = fil.nextLine().split(",");
                     String navn = linje2[1];
@@ -158,7 +150,6 @@ public class Legesystemet {
                     }
                 }
             }
-
         }
     }
 }

@@ -73,9 +73,9 @@ public class Main {
 ***/
         Legesystemet system = new Legesystemet();
         system.leseFraFil("Informasjon.txt");
-        //system.skrivUtPasienter();
+        system.skrivUtPasienter();
         //system.skrivUtLegemiddler();
-        system.skrivUtLeger();
+        //system.skrivUtLeger();
 
 
     }

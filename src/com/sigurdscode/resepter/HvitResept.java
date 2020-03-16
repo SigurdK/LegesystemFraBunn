@@ -18,5 +18,4 @@ public class HvitResept extends Resept{
 
         return "\nResepten er "+this.farge() +" og gjelder legemiddelet: \n"+legemiddel+"\n\npris per legemiddel med denne resepten: "+this.prisAaBetale()+"\nUtskrivende " +utskrivendeLege.typeLege()+" er: "+utskrivendeLege.hentNavn()+"\nPasientens ID: "+pasient+"\nAntall ganger igjen(reit): "+reit+"\nReseptens ID: "+Id+"\n";
     }
-
 }
