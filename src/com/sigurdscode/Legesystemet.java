@@ -6,6 +6,7 @@ import com.sigurdscode.legemiddler.Vanedannende;
 import com.sigurdscode.legemiddler.Vanlig;
 import com.sigurdscode.leger.Lege;
 import com.sigurdscode.leger.Spesialist;
+import com.sigurdscode.leger.UlovligUtskrift;
 import com.sigurdscode.lenkelister.Lenkeliste;
 import com.sigurdscode.pasienter.Pasient;
 
@@ -30,8 +31,14 @@ public class Legesystemet {
     }
     public void skrivUtLeger(){
         for(Lege lege : legene){
-            System.out.println(lege);
             lege.skrivReseptListe();
+
+            /*try{ //catcher alle resepter som er ulovlige?
+                System.out.println(lege);
+                lege.skrivReseptListe();
+            }catch (NullPointerException e){
+                System.out.println("Dette går ikke.");
+            }*/
         }
     }
     public void skrivUtLegemiddler(){
@@ -50,42 +57,50 @@ public class Legesystemet {
                sjanger =  fil.nextLine().split(" ")[1];
             }
 
-
-            if (sjanger.equals("Pasienter")) {
-
+            if (sjanger.equals("Pasienter")) { //Exception: Hvordan?
                 while (!fil.hasNext("#")) {
+
                     String[] linje2 = fil.nextLine().split(",");
                     Pasient pasient = new Pasient(linje2[0], linje2[1]);
                     pasientene.leggTil(pasient);
                 }
 
             }else if (sjanger.equals("Legemidler")) {
-
                 while (!fil.hasNext("#")){
-                    String[] linje2 = fil.nextLine().split(",");
-                    String navn = linje2[0];
-                    int pris = Integer.parseInt(linje2[2]);
-                    int virkestoff = Integer.parseInt(linje2[3]);
-                    int styrke = Integer.parseInt(linje2[3]);
-                    String type = linje2[1];
+                    try{
+                        String[] linje2 = fil.nextLine().split(",");
+                        String navn = linje2[0];
 
-                    switch (type) {
-                        case "narkotisk":
-                            Narkotisk narkotisk = new Narkotisk(navn, pris, virkestoff, styrke);
-                            legemiddlene.leggTil(narkotisk);
-                            break;
-                        case "vanedannende":
-                            Vanedannende vanedannende = new Vanedannende(navn, pris, virkestoff, styrke);
-                            legemiddlene.leggTil(vanedannende);
-                            break;
-                        case "vanlig":
-                            Vanlig vanlig = new Vanlig(navn, pris, virkestoff);
-                            legemiddlene.leggTil(vanlig);
-                            break;
+                        String type = linje2[1];
+                        double pris = Double.parseDouble(linje2[2]);
+                        double virkestoff = Double.parseDouble(linje2[3]);
+                        //int styrke = Integer.parseInt(linje2[4]); //Må fikse denne..
+                        int styrke = 0;
+                        if ((type.equals("narkotisk")) || (type.equals("vanedannende"))){ //opprette en throw ecxeption
+                            styrke = Integer.parseInt(linje2[4]);
+                        }
+
+                        switch (type) {
+                            case "narkotisk":
+                                Narkotisk narkotisk = new Narkotisk(navn, pris, virkestoff, styrke);
+                                legemiddlene.leggTil(narkotisk);
+                                break;
+                            case "vanedannende":
+                                Vanedannende vanedannende = new Vanedannende(navn, pris, virkestoff, styrke);
+                                legemiddlene.leggTil(vanedannende);
+                                break;
+                            case "vanlig":
+                                Vanlig vanlig = new Vanlig(navn, pris, virkestoff);
+                                legemiddlene.leggTil(vanlig);
+                                break;
+                        }
+                    }catch(NumberFormatException e){
+                        System.out.println("Feil formatert Legemiddel");
+                        //denne fanger alle som ikke har et tall på pris plassen i teksten.
                     }
                 }
-            }else if (sjanger.equals("Leger")){
 
+            }else if (sjanger.equals("Leger")){
                 while (!fil.hasNext("#")){
                     String[] linje2 = fil.nextLine().split(",");
                     String navn = linje2[0];
@@ -98,56 +113,68 @@ public class Legesystemet {
                         legene.leggTil(spesialist);
                     }
                 }
+
             }else if(sjanger.equals("Resepter")){
                 while (fil.hasNextLine()){
-                    String[] linje2 = fil.nextLine().split(",");
-                    String navn = linje2[1];
-                    int pasientID = Integer.parseInt(linje2[2]);
-                    String type = linje2[3];
+                    try{ //Exception der leger uten interface ikke kan skrive ut resepter som krever spsialist.
+                        String[] linje2 = fil.nextLine().split(",");
+                        String navn = linje2[1];
+                        int pasientID = Integer.parseInt(linje2[2]);
+                        String type = linje2[3];
 
-                    int reit=0;
-                    if (!(type.equals("p"))){ //opprette en throw ecxeption
-                        reit = Integer.parseInt(linje2[4]);
-                    }
-                    int legemiddelNummer = Integer.parseInt(linje2[0]);
+                        int reit=0;
+                        if (!(type.equals("p"))){ //opprette en throw ecxeption
+                            reit = Integer.parseInt(linje2[4]);
+                        }
+                        int legemiddelNummer = Integer.parseInt(linje2[0]);
 
-                    Lege legen = null;
-                    Pasient pasienten = null;
-                    Legemiddel legemiddelet = null;
 
-                    for (Lege lege : legene){
-                        if (navn.equals(lege.hentNavn())){
-                            legen = lege;
+                        Lege legen = null;
+                        Pasient pasienten = null;
+                        Legemiddel legemiddelet = null;
+
+                        for (Lege lege : legene){
+                            if (navn.equals(lege.hentNavn())){
+                                legen = lege;
+                                //System.out.println(legen);
+                            }
                         }
-                    }
-                    for (Pasient pasient : pasientene){
-                        if (pasientID == pasient.hentID()){
-                            pasienten = pasient;
+                        for (Pasient pasient : pasientene){
+                            if (pasientID == pasient.hentID()){
+                                pasienten = pasient;
+                            }
                         }
-                    }
-                    for (Legemiddel legemiddel : legemiddlene){
-                        if (legemiddelNummer == legemiddel.hentId()){
-                            legemiddelet = legemiddel;
+                        for (Legemiddel legemiddel : legemiddlene){
+                            if (legemiddelNummer == legemiddel.hentId()){
+                                legemiddelet = legemiddel;
+                            }
                         }
+                        //fnger opp at det ikke skapes resepter som er med tomt innhold.
+                        if (!(legen == null || pasienten == null || legemiddelet == null)){
+                            switch (type) {
+                                case "hvit":
+                                    //assert legen != null;
+                                    legen.skrivHvitResept(legemiddelet, pasienten, reit);
+                                    break;
+                                case "blaa":
+                                    //assert legen != null;
+                                    legen.skrivBlaaResept(legemiddelet, pasienten, reit);
+                                    break;
+                                case "millitaer":
+                                    //assert legen != null;
+                                    legen.skrivMillitaerResept(legemiddelet, pasienten, reit);
+                                    break;
+                                case "p":
+                                    //assert legen != null;
+                                    legen.skrivPResept(legemiddelet, pasienten);
+                                    break;
+                            }
+                        }
+
+                    }catch (UlovligUtskrift e){
+                        System.out.println(e.getMessage());
                     }
-                    switch (type) {
-                        case "hvit":
-                            assert legen != null;
-                            legen.skrivHvitResept(legemiddelet, pasienten, reit);
-                            break;
-                        case "blaa":
-                            assert legen != null;
-                            legen.skrivBlaaResept(legemiddelet, pasienten, reit);
-                            break;
-                        case "millitaer":
-                            assert legen != null;
-                            legen.skrivMillitaerResept(legemiddelet, pasienten, reit);
-                            break;
-                        case "p":
-                            assert legen != null;
-                            legen.skrivPResept(legemiddelet, pasienten);
-                            break;
-                    }
+
                 }
             }
         }

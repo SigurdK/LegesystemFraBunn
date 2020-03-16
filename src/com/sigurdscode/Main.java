@@ -72,10 +72,10 @@ public class Main {
         per.skrivReseptListe();
 ***/
         Legesystemet system = new Legesystemet();
-        system.leseFraFil("Informasjon.txt");
+        system.leseFraFil("InformasjonStor.txt");
         system.skrivUtPasienter();
-        //system.skrivUtLegemiddler();
-        //system.skrivUtLeger();
+        system.skrivUtLegemiddler();
+        system.skrivUtLeger();
 
 
     }
