@@ -33,7 +33,10 @@ public class Pasient {
     public void hentReseptListe(){
         stabel.print();
     }
+    public int antallResepter(){
+        return stabel.stoerrelse();
+    }
     public String toString(){
-        return "Pasientens navn: "+navn+"\nPasientens fodselsnummer: "+fodselsnummer+"\nPasientens ID: "+ ID;
+        return "\nPasientens navn: "+navn+"\nPasientens fodselsnummer: "+fodselsnummer+"\nPasientens ID: "+ ID+"\nAntall Resepter: "+ this.antallResepter();
     }
 }
