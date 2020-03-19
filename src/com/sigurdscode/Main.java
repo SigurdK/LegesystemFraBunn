@@ -147,6 +147,14 @@ public class Main {
 
 
                 case 2: //Bruke en gitt resept fra listen til en pasient.
+                    system.skrivUtPasienterLiten();
+                    System.out.println("Hvilken pasient vil du se resepter for? (Skriv navn)");
+                    Pasient pasient = system.velgPasient();
+                    system.skrivUtResepterLitenPasient(pasient);
+                    system.velgResept(pasient);
+                    //int valg5 = input.nextInt();
+                    //Finn og bruk resept ut ifra ID
+                    //Over skrives så en enkel verson av pasientens resepter. Velg hvilken resept ogsp med ID.
                     break;
                 case 3: //Skrive ut statistikk.
                     break;

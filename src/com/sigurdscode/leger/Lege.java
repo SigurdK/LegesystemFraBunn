@@ -22,6 +22,12 @@ public class Lege implements Comparable<Lege>{
         return utskrevedeResepter;
     }
 
+    public void skrivReseptlisteLiten(){
+        for (Resept resept : utskrevedeResepter){
+            resept.skrivReseptLiten();
+        }
+    }
+
     public void skrivReseptListe(){
         for (Resept resept : utskrevedeResepter){
             System.out.println(resept);

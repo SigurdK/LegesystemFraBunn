@@ -30,11 +30,22 @@ public class Pasient {
     public Resept taUtResept(){
         return stabel.taAv();
     }
+    public  Stabel<Resept> hentResepterTilPasient(){
+        return stabel;
+    }
     public void hentReseptListe(){
         stabel.print();
     }
     public int antallResepter(){
         return stabel.stoerrelse();
+    }
+    public void skrivUtPasientLiten(){
+        System.out.println(ID +": "+navn+" (fdr: "+fodselsnummer+")"+stabel.stoerrelse());
+    }
+    public void skrivUtResepterLiten(){
+        for (Resept resept : stabel){
+            resept.skrivReseptLiten();
+        }
     }
     public String toString(){
         return "\nPasientens navn: "+navn+"\nPasientens fodselsnummer: "+fodselsnummer+"\nPasientens ID: "+ ID+"\nAntall Resepter: "+ this.antallResepter();

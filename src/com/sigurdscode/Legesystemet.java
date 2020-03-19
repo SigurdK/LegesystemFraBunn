@@ -10,7 +10,9 @@ import com.sigurdscode.leger.Spesialist;
 import com.sigurdscode.leger.UlovligUtskrift;
 import com.sigurdscode.lenkelister.Lenkeliste;
 import com.sigurdscode.lenkelister.SortertLenkeliste;
+import com.sigurdscode.lenkelister.Stabel;
 import com.sigurdscode.pasienter.Pasient;
+import com.sigurdscode.resepter.Resept;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -54,6 +56,30 @@ public class Legesystemet {
             System.out.println("Den oppgitte pasienten finnes ikke! Prøv igjen");
         }
     }
+
+    public void velgResept(Pasient p){
+        Scanner input = new Scanner(System.in);
+        Stabel<Resept> stabel= p.hentResepterTilPasient();
+        if (stabel.stoerrelse() == 0){
+            System.out.println("Pasienten har ingen resepter!");
+            return;
+        }
+        System.out.println("Hvilken Resept vil du bruke?");
+        int valgID = input.nextInt();
+
+        for (Resept resept : stabel){
+            if (valgID == resept.hentId()){
+                boolean v = resept.bruk();
+                if (v){
+                    System.out.println("Resepten ble brukt vellykket");
+                }else {System.out.println("Ingen flere Reit");}
+
+            }
+        }
+        System.out.println("Du valgte en resept som ikke finnes!");
+        //Velg og bruk en resept til den gitte pasienten.
+    }
+
     public Legemiddel velgLegemiddel(){
         Scanner input = new Scanner(System.in);
         while (true){
@@ -180,12 +206,24 @@ public class Legesystemet {
         }
     }
 
+    public void skrivUtPasienterLiten(){
+        for (Pasient pasient : pasientene){
+            pasient.skrivUtPasientLiten();
+        }
+    }
     public void skrivUtPasienter(){
         System.out.println("---------\nPASIENTER\n---------");
         for(Pasient pasienter : pasientene){
             System.out.println(pasienter);
             //pasienter.hentReseptListe();
 
+        }
+    }
+    public void skrivUtResepterLitenPasient(Pasient p){
+        for(Pasient pasient : pasientene){
+            if (p.hentID() == pasient.hentID()){
+                pasient.skrivUtResepterLiten();
+            }
         }
     }
     public void skrivUtResepter(){

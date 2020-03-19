@@ -47,6 +47,10 @@ public abstract class Resept {
                 return true;
             }
         }
+
+        public void skrivReseptLiten(){
+            System.out.println(Id +": "+legemiddel.hentNavn()+"(reit: "+reit+")");
+        }
         //har noen funksjoner som skal implementeres i alle sub-klassene.
         abstract public String farge();
         abstract public double prisAaBetale();
