@@ -1,5 +1,6 @@
 package com.sigurdscode;
 
+import com.sigurdscode.exceptions.UgyldigLegemiddelException;
 import com.sigurdscode.legemiddler.Legemiddel;
 import com.sigurdscode.legemiddler.Narkotisk;
 import com.sigurdscode.legemiddler.Vanedannende;
@@ -13,6 +14,7 @@ import com.sigurdscode.pasienter.Pasient;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Legesystemet {
@@ -24,6 +26,48 @@ public class Legesystemet {
     public Legesystemet(){
     }
 
+    public Lege velgLege(){
+        Scanner input = new Scanner(System.in);
+        while (true){
+            String navn = input.nextLine();
+            for(Lege lege : legene){
+                String navnet = lege.hentNavn();
+                if (navn.equals(navnet)){
+                    System.out.println("Den oppgitte legen finnes!");
+                    return lege;
+                }
+            }
+            System.out.println("Den oppgitte legen finnes ikke! Prøv igjen");
+        }
+    }
+    public Pasient velgPasient(){
+        Scanner input = new Scanner(System.in);
+        while (true){
+            String navn = input.nextLine();
+            for(Pasient pasient : pasientene){
+                String navnet = pasient.hentNavn();
+                if (navn.equals(navnet)){
+                    System.out.println("Den oppgitte pasienten finnes!");
+                    return pasient;
+                }
+            }
+            System.out.println("Den oppgitte pasienten finnes ikke! Prøv igjen");
+        }
+    }
+    public Legemiddel velgLegemiddel(){
+        Scanner input = new Scanner(System.in);
+        while (true){
+            int ide = input.nextInt();
+            for(Legemiddel legemiddel : legemiddlene){
+                int Id = legemiddel.hentId();
+                if (ide == Id){
+                    System.out.println("Det oppgitte Legemiddelet finnes! -" +legemiddel);
+                    return legemiddel;
+                }
+            }
+            System.out.println("Det oppgitte legemiddelet finnes ikke! Prøv igjen");
+        }
+    }
     public void leggTilLege(){
         Scanner input = new Scanner(System.in);
         System.out.println("---------\nNY LEGE\n---------");
@@ -60,6 +104,9 @@ public class Legesystemet {
         pasientene.leggTil(pasient);
 
     }
+    public int antallLegemiddler(){
+        return legemiddlene.stoerrelse();
+    }
 
     public void skrivNyResept(){
         for(Lege lege : legene){
@@ -67,14 +114,77 @@ public class Legesystemet {
         }
     }
     public void leggTilLegemiddel(){
+        Scanner input = new Scanner(System.in);
+        int valg = input.nextInt();
+        switch (valg){
+            case 0: //Narkotisk
+                try{
+                    input.nextLine();
+                    System.out.println("Navn: ");
+                    String navn = input.nextLine();
+                    System.out.println("Pris: ");
+                    float pris = input.nextInt();
+                    System.out.println("Virkestoff: ");
+                    float virkestoff = input.nextInt();
+                    System.out.println("Styrke: ");
+                    int styrke = input.nextInt();
+                    Narkotisk narkotisk = new Narkotisk(navn, pris, virkestoff, styrke);
+                    legemiddlene.leggTil(narkotisk);
+                    System.out.println("Vellykket! legemiddelet :"+narkotisk+"\nBle lagt til i systemet");
 
+                }catch (InputMismatchException e){
+                    System.out.println("Feil input!");
+                }
+
+                break;
+            case 1: //Vanedannende
+                try{
+                    input.nextLine();
+                    System.out.println("Navn: ");
+                    String navn = input.nextLine();
+                    System.out.println("Pris: ");
+                    float pris = input.nextInt();
+                    System.out.println("Virkestoff: ");
+                    float virkestoff = input.nextInt();
+                    System.out.println("Styrke: ");
+                    int styrke = input.nextInt();
+                    Vanedannende vanedannende = new Vanedannende(navn, pris, virkestoff, styrke);
+                    legemiddlene.leggTil(vanedannende);
+                    System.out.println("Vellykket! legemiddelet :"+vanedannende+"\nBle lagt til i systemet");
+
+                }catch (InputMismatchException e){
+                    System.out.println("Feil input!");
+                }
+
+                break;
+            case 2: //Vanlig
+                try{
+                    input.nextLine();
+                    System.out.println("Navn: ");
+                    String navn = input.nextLine();
+                    System.out.println("Pris: ");
+                    float pris = input.nextInt();
+                    System.out.println("Virkestoff: ");
+                    int virkestoff = input.nextInt();
+                    Vanlig vanlig = new Vanlig(navn, pris, virkestoff);
+                    legemiddlene.leggTil(vanlig);
+                    System.out.println("Vellykket! legemiddelet :"+vanlig+"\nBle lagt til i systemet");
+
+                }catch (InputMismatchException e){
+                    System.out.println("Feil input!");
+                }
+
+                break;
+            case 3: // avslutt
+                break;
+        }
     }
 
     public void skrivUtPasienter(){
         System.out.println("---------\nPASIENTER\n---------");
         for(Pasient pasienter : pasientene){
             System.out.println(pasienter);
-            pasienter.hentReseptListe();
+            //pasienter.hentReseptListe();
 
         }
     }

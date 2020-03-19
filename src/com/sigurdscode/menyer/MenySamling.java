@@ -42,4 +42,11 @@ public class MenySamling {
                 "3: Blaa Resept\n" +
                 "4: tilbake");
     }
+    public void lageLegemiddelMeny(){
+        System.out.println("\nType legemiddel:\n" +
+                "0: Narkotisk\n" +
+                "1: Vanedannende\n" +
+                "2: Vanlig\n" +
+                "3: tilbake");
+    }
 }
