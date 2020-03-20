@@ -80,58 +80,61 @@ public class Main {
                                 System.out.println("\nHva heter den utskrivende legen/spesialisten? (Se listen over)");
                                 Lege reseptensSkrivendeLege = system.velgLege(); //velge lege
 
-                                System.out.println("Hva heter pasienten som skal ha resept?");
-                                system.skrivUtPasienter();
-                                Pasient reseptensPasient = system.velgPasient();     //velge resepttype
+
+                                system.skrivUtPasienterLiten();
+                                System.out.println("\nHva er ID til pasienten som skal ha resept? (velg ID fra listen over)");
+                                Pasient reseptensPasient = system.velgPasient();     //velge Pasient
+                                if (reseptensPasient == null){
+                                    break;
+                                }
+                                system.skrivUtLegemiddlerLiten();
                                 System.out.println("\nHvilket legemiddel gjelder resepten for? (Velg ID nummer mellom 0 - "+ (system.antallLegemiddler()-1)+")");
                                 Legemiddel reseptensLegemiddel = system.velgLegemiddel();    //velge Legemiddel
 
                                 int valg5=10;
-                                while(valg5 != 4){
-                                    meny.reseptTypeMeny();
-                                    valg5 = input.nextInt();
-                                    switch(valg5){ //Type resept
-                                        case 0: //Hvit
-                                            System.out.println("Hvor mange? (Reit)");
-                                            int reit = input.nextInt();
-                                            try{//Ikke sikkert legen kan skriv eut da legemidde kan være narkotisk
-                                                reseptensSkrivendeLege.skrivHvitResept(reseptensLegemiddel,reseptensPasient,reit);
-                                                System.out.println("Godkjent!");
-                                            }catch (UlovligUtskrift e){
-                                                System.out.println(e.getMessage());
-                                            }
-                                            break;
-                                        case 1://Millitaer
-                                            System.out.println("Hvor mange? (Reit)");
-                                            reit = input.nextInt();
-                                            try{//Ikke sikkert legen kan skriv eut da legemidde kan være narkotisk
-                                                reseptensSkrivendeLege.skrivMillitaerResept(reseptensLegemiddel,reseptensPasient,reit);
-                                                System.out.println("Godkjent!");
-                                            }catch (UlovligUtskrift e){
-                                                System.out.println(e.getMessage());
-                                            }
 
-                                            break;
-                                        case 2: //P
+                                meny.reseptTypeMeny();
+                                valg5 = input.nextInt();
+                                switch(valg5){ //Type resept
+                                    case 0: //Hvit
+                                        System.out.println("Hvor mange? (Reit)");
+                                        int reit = input.nextInt();
+                                        try{//Ikke sikkert legen kan skriv eut da legemidde kan være narkotisk
+                                            reseptensSkrivendeLege.skrivHvitResept(reseptensLegemiddel,reseptensPasient,reit);
+                                            System.out.println("Godkjent!");
+                                        }catch (UlovligUtskrift e){
+                                            System.out.println(e.getMessage());
+                                        }
+                                        break;
+                                    case 1://Millitaer
+                                        System.out.println("Hvor mange? (Reit)");
+                                        reit = input.nextInt();
+                                        try{//Ikke sikkert legen kan skriv eut da legemidde kan være narkotisk
+                                            reseptensSkrivendeLege.skrivMillitaerResept(reseptensLegemiddel,reseptensPasient,reit);
+                                            System.out.println("Godkjent!");
+                                        }catch (UlovligUtskrift e){
+                                            System.out.println(e.getMessage());
+                                        }
+                                        break;
+                                    case 2: //P
 
-                                            try{//Ikke sikkert legen kan skriv eut da legemidde kan være narkotisk
-                                                reseptensSkrivendeLege.skrivPResept(reseptensLegemiddel,reseptensPasient);
-                                                System.out.println("Godkjent!");
-                                            }catch (UlovligUtskrift e){
-                                                System.out.println(e.getMessage());
-                                            }
-                                            break;
-                                        case 3://Blaa
-                                            System.out.println("Hvor mange? (Reit)");
-                                            reit = input.nextInt();
-                                            try{//Ikke sikkert legen kan skriv eut da legemidde kan være narkotisk
-                                                reseptensSkrivendeLege.skrivBlaaResept(reseptensLegemiddel,reseptensPasient,reit);
-                                                System.out.println("Godkjent!");
-                                            }catch (UlovligUtskrift e){
-                                                System.out.println(e.getMessage());
-                                            }
-                                            break;
-                                    }
+                                        try{//Ikke sikkert legen kan skriv eut da legemidde kan være narkotisk
+                                            reseptensSkrivendeLege.skrivPResept(reseptensLegemiddel,reseptensPasient);
+                                            System.out.println("Godkjent!");
+                                        }catch (UlovligUtskrift e){
+                                            System.out.println(e.getMessage());
+                                        }
+                                        break;
+                                    case 3://Blaa
+                                        System.out.println("Hvor mange? (Reit)");
+                                        reit = input.nextInt();
+                                        try{//Ikke sikkert legen kan skriv eut da legemidde kan være narkotisk
+                                            reseptensSkrivendeLege.skrivBlaaResept(reseptensLegemiddel,reseptensPasient,reit);
+                                            System.out.println("Godkjent!");
+                                        }catch (UlovligUtskrift e){
+                                            System.out.println(e.getMessage());
+                                        }
+                                        break;
                                 }
                                 system.skrivNyResept();
                                 break;
@@ -148,12 +151,10 @@ public class Main {
 
                 case 2: //Bruke en gitt resept fra listen til en pasient.
                     system.skrivUtPasienterLiten();
-                    System.out.println("Hvilken pasient vil du se resepter for? (Skriv navn)");
+                    System.out.println("\nHvilken pasient vil du se resepter for? (Velg ID fra listen over)");
                     Pasient pasient = system.velgPasient();
                     system.skrivUtResepterLitenPasient(pasient);
                     system.velgResept(pasient);
-                    //int valg5 = input.nextInt();
-                    //Finn og bruk resept ut ifra ID
                     //Over skrives så en enkel verson av pasientens resepter. Velg hvilken resept ogsp med ID.
                     break;
                 case 3: //Skrive ut statistikk.

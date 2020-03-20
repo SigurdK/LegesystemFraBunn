@@ -42,19 +42,25 @@ public class Legesystemet {
             System.out.println("Den oppgitte legen finnes ikke! Prøv igjen");
         }
     }
+
     public Pasient velgPasient(){
         Scanner input = new Scanner(System.in);
-        while (true){
-            String navn = input.nextLine();
-            for(Pasient pasient : pasientene){
-                String navnet = pasient.hentNavn();
-                if (navn.equals(navnet)){
-                    System.out.println("Den oppgitte pasienten finnes!");
-                    return pasient;
+        Pasient p = null;
+        try{
+            while ( p==null) {
+                int pasientId = input.nextInt();
+                for(Pasient pasient : pasientene){
+                    int idPasienten = pasient.hentID();
+                    if (pasientId == idPasienten){
+                        System.out.println("Den oppgitte pasienten finnes!");
+                        p = pasient;
+                    }
                 }
             }
-            System.out.println("Den oppgitte pasienten finnes ikke! Prøv igjen");
+        }catch (InputMismatchException e){
+            System.out.println("Ikke gyldig input! ");
         }
+        return p;
     }
 
     public void velgResept(Pasient p){
@@ -64,15 +70,19 @@ public class Legesystemet {
             System.out.println("Pasienten har ingen resepter!");
             return;
         }
-        System.out.println("Hvilken Resept vil du bruke?");
+        System.out.println("\nHvilken Resept vil du bruke?(Velg ID)");
         int valgID = input.nextInt();
 
         for (Resept resept : stabel){
             if (valgID == resept.hentId()){
                 boolean v = resept.bruk();
                 if (v){
-                    System.out.println("Resepten ble brukt vellykket");
-                }else {System.out.println("Ingen flere Reit");}
+                    System.out.println("Resepten ble brukt vellykket\n antall reit igjen: "+resept.hentReit());
+                    return;
+                }else {
+                    System.out.println("Mislykket: Ingen flere Reit");
+                    return;
+                }
 
             }
         }
@@ -103,6 +113,7 @@ public class Legesystemet {
         navnLege = input.nextLine();
         Lege lege = new Lege(navnLege);
         legene.leggTil(lege);
+        System.out.println("Spesialisten"+navnLege+"er lagt til.");
     }
     public void leggTilSpesialist(){
         Scanner input = new Scanner(System.in);
@@ -116,6 +127,7 @@ public class Legesystemet {
         ID = input.nextInt();
         Spesialist spesialist = new Spesialist(navnSpesialist,ID);
         legene.leggTil(spesialist);
+        System.out.println("Spesialisten"+navnSpesialist+"er lagt til.");
     }
     public void leggTilPasient(){
         Scanner input = new Scanner(System.in);
@@ -127,7 +139,10 @@ public class Legesystemet {
         String fn;
         fn = input.nextLine();
         Pasient pasient = new Pasient(navnPasient,fn);
+        System.out.println("Pasienten: "+navnPasient+", Er lagt til i pasient listen.");
         pasientene.leggTil(pasient);
+
+
 
     }
     public int antallLegemiddler(){
@@ -242,6 +257,11 @@ public class Legesystemet {
         System.out.println("---------\nLEGEMIDDLER\n---------");
         for(Legemiddel legemiddel : legemiddlene){
             System.out.println(legemiddel);
+        }
+    }
+    public void skrivUtLegemiddlerLiten(){
+        for (Legemiddel l : legemiddlene){
+            System.out.println(l.hentId()+": "+l.hentNavn());
         }
     }
 

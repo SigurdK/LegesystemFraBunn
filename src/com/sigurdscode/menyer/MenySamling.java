@@ -4,7 +4,7 @@ public class MenySamling {
 
     public void hovedMeny(){
 
-        System.out.println("Hovedmeny:\n" +
+        System.out.println("\nHOVEDMENY:\n" +
                 "0: Skriv ut Journal\n" +
                 "1: Opprett og legge til nye elementer i systemet\n" +
                 "2: Bruke en gitt resept fra listen til en pasient\n" +
@@ -39,8 +39,7 @@ public class MenySamling {
                 "0: Hvit Resept\n" +
                 "1: Millitaer Resept\n" +
                 "2: P Resept\n" +
-                "3: Blaa Resept\n" +
-                "4: tilbake");
+                "3: Blaa Resept\n");
     }
     public void lageLegemiddelMeny(){
         System.out.println("\nType legemiddel:\n" +

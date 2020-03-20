@@ -40,7 +40,7 @@ public class Pasient {
         return stabel.stoerrelse();
     }
     public void skrivUtPasientLiten(){
-        System.out.println(ID +": "+navn+" (fdr: "+fodselsnummer+")"+stabel.stoerrelse());
+        System.out.println(ID +": "+navn+" (fdr: "+fodselsnummer+") Antall resepter: "+stabel.stoerrelse());
     }
     public void skrivUtResepterLiten(){
         for (Resept resept : stabel){
