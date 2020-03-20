@@ -42,7 +42,6 @@ public class Legesystemet {
             System.out.println("Den oppgitte legen finnes ikke! Prøv igjen");
         }
     }
-
     public Pasient velgPasient(){
         Scanner input = new Scanner(System.in);
         Pasient p = null;
@@ -62,7 +61,6 @@ public class Legesystemet {
         }
         return p;
     }
-
     public void velgResept(Pasient p){
         Scanner input = new Scanner(System.in);
         Stabel<Resept> stabel= p.hentResepterTilPasient();
@@ -89,7 +87,6 @@ public class Legesystemet {
         System.out.println("Du valgte en resept som ikke finnes!");
         //Velg og bruk en resept til den gitte pasienten.
     }
-
     public Legemiddel velgLegemiddel(){
         Scanner input = new Scanner(System.in);
         while (true){
@@ -104,6 +101,7 @@ public class Legesystemet {
             System.out.println("Det oppgitte legemiddelet finnes ikke! Prøv igjen");
         }
     }
+
     public void leggTilLege(){
         Scanner input = new Scanner(System.in);
         System.out.println("---------\nNY LEGE\n---------");
@@ -145,6 +143,7 @@ public class Legesystemet {
 
 
     }
+
     public int antallLegemiddler(){
         return legemiddlene.stoerrelse();
     }
@@ -265,6 +264,19 @@ public class Legesystemet {
         }
     }
 
+    public void statistikkAntallResepterVanedannende(){
+        int teller = 0;
+        for (Lege l : legene){
+            Lenkeliste<Resept> le = l.hentReseptListe();
+            for(Resept r : le){
+                Legemiddel legemiddel = r.hentLegemiddel();
+                if(Vanedannende.class.equals(legemiddel.getClass())){
+                    teller++;
+                }
+            }
+        }
+        System.out.println("Antall legemiddler med Vanedannende legemiddel er: "+ teller);
+    }
     public void leseFraFil(String filnavn) throws Exception{
 
         File f = new File(filnavn);

@@ -158,6 +158,7 @@ public class Main {
                     //Over skrives så en enkel verson av pasientens resepter. Velg hvilken resept ogsp med ID.
                     break;
                 case 3: //Skrive ut statistikk.
+                    system.statistikkAntallResepterVanedannende();
                     break;
                 case 4: //Skriv alle data til fil.
                     break;
