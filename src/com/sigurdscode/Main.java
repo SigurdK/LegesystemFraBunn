@@ -158,7 +158,8 @@ public class Main {
                     //Over skrives så en enkel verson av pasientens resepter. Velg hvilken resept ogsp med ID.
                     break;
                 case 3: //Skrive ut statistikk.
-                    system.statistikkAntallResepterVanedannende();
+                    System.out.println("Antall legemiddler med Vanedannende legemiddel er: "+ system.statistikkAntallResepterVanedannende());
+                    System.out.println("Antall legemiddler med Narkotisk legemiddel er: "+ system.statistikkAntallResepterNarkotisk());
                     break;
                 case 4: //Skriv alle data til fil.
                     break;

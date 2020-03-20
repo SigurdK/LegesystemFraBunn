@@ -264,7 +264,7 @@ public class Legesystemet {
         }
     }
 
-    public void statistikkAntallResepterVanedannende(){
+    public int statistikkAntallResepterVanedannende(){
         int teller = 0;
         for (Lege l : legene){
             Lenkeliste<Resept> le = l.hentReseptListe();
@@ -275,7 +275,20 @@ public class Legesystemet {
                 }
             }
         }
-        System.out.println("Antall legemiddler med Vanedannende legemiddel er: "+ teller);
+        return teller;
+    }
+    public int statistikkAntallResepterNarkotisk(){
+        int teller = 0;
+        for (Lege l : legene){
+            Lenkeliste<Resept> le = l.hentReseptListe();
+            for(Resept r : le){
+                Legemiddel legemiddel = r.hentLegemiddel();
+                if(Narkotisk.class.equals(legemiddel.getClass())){
+                    teller++;
+                }
+            }
+        }
+        return teller;
     }
     public void leseFraFil(String filnavn) throws Exception{
 
