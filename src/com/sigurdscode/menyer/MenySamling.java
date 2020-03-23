@@ -31,8 +31,7 @@ public class MenySamling {
     public void legeSpesialistMeny(){
         System.out.println("\nLege eller Spesialist:\n" +
                 "0: Lege\n" +
-                "1: Spesialist\n" +
-                "2: Tilbake\n");
+                "1: Spesialist\n");
     }
     public void reseptTypeMeny(){
         System.out.println("\nType resept:\n" +

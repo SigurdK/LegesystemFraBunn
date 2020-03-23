@@ -69,23 +69,27 @@ public class Legesystemet {
             return;
         }
         System.out.println("\nHvilken Resept vil du bruke?(Velg ID)");
-        int valgID = input.nextInt();
-
-        for (Resept resept : stabel){
-            if (valgID == resept.hentId()){
-                boolean v = resept.bruk();
-                if (v){
-                    System.out.println("Resepten ble brukt vellykket\n antall reit igjen: "+resept.hentReit());
-                    return;
-                }else {
-                    System.out.println("Mislykket: Ingen flere Reit");
-                    return;
+        try {
+            int valgID = input.nextInt();
+            for (Resept resept : stabel){
+                if (valgID == resept.hentId()){
+                    boolean v = resept.bruk();
+                    if (v){
+                        System.out.println("Resepten "+resept.hentLegemiddel().hentNavn()+" ble brukt vellykket\n antall reit igjen: "+resept.hentReit());
+                        return;
+                    }else {
+                        System.out.println("Mislykket: Ingen flere Reit");
+                        return;
+                    }
                 }
-
             }
+            System.out.println("Du valgte en resept som ikke finnes!");
+            //Velg og bruk en resept til den gitte pasienten.
+
+        }catch (InputMismatchException e){
+            System.out.println("Ugyldig Input!");
+            input.next(); // Må ha for at scanner skal cleares og while loopen ikke skal gå amokk.
         }
-        System.out.println("Du valgte en resept som ikke finnes!");
-        //Velg og bruk en resept til den gitte pasienten.
     }
     public Legemiddel velgLegemiddel(){
         Scanner input = new Scanner(System.in);
@@ -234,6 +238,7 @@ public class Legesystemet {
         }
     }
     public void skrivUtResepterLitenPasient(Pasient p){
+        System.out.println("\nReseptene til "+p.hentNavn()+" er listet her: ");
         for(Pasient pasient : pasientene){
             if (p.hentID() == pasient.hentID()){
                 pasient.skrivUtResepterLiten();
