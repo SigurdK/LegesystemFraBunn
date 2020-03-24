@@ -154,11 +154,6 @@ public class Legesystemet {
         return legemiddlene.stoerrelse();
     }
 
-    public void skrivNyResept(){
-        for(Lege lege : legene){
-
-        }
-    }
     public void leggTilLegemiddel(){
         Scanner input = new Scanner(System.in);
         int valg = input.nextInt();
@@ -225,7 +220,6 @@ public class Legesystemet {
                 break;
         }
     }
-
     public void skrivUtPasienterLiten(){
         for (Pasient pasient : pasientene){
             pasient.skrivUtPasientLiten();
@@ -320,7 +314,7 @@ public class Legesystemet {
             for (Lege le : legene) {
                 pw.append(le.printTilFil()+ "\n");//Mekke egen til string hos legemiddel.
             }
-            pw.append("# Resepter (legemiddelNummer,legeNavn,pasientID,type,[reit])");
+            pw.append("# Resepter (legemiddelNummer,legeNavn,pasientID,type,[reit])\n");
             for (Lege le : legene) {
                 Lenkeliste<Resept> resepter = le.hentReseptListe();
                 for (Resept r : resepter) {

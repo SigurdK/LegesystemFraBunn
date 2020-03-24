@@ -138,7 +138,6 @@ public class Main {
                                             }
                                             break;
                                     }
-                                    system.skrivNyResept();
                                     break;
                                 case 3: //Legemiddel
                                     meny.lageLegemiddelMeny();
