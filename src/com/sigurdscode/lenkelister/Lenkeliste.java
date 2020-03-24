@@ -16,7 +16,6 @@ public class Lenkeliste<T> implements Liste<T>{
         antallNoder = 0; //antall elementer lik 0
     }
 
-
     public int stoerrelse(){ //Sjekker gjennom lista og teller så lenge hode av listen ikke er lik halen.
         int count = 0;
         Node temp = hode.neste;

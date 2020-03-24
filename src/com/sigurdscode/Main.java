@@ -101,17 +101,18 @@ public class Main {
                                             System.out.println("Hvor mange? (Reit)");
                                             int reit = input.nextInt();
                                             try{//Ikke sikkert legen kan skriv eut da legemidde kan være narkotisk
-                                                reseptensSkrivendeLege.skrivHvitResept(reseptensLegemiddel,reseptensPasient,reit);
+                                                //Legger til respten som opprettes av legen til pasientens respt stabel.
+                                                reseptensPasient.leggTilResept(reseptensSkrivendeLege.skrivHvitResept(reseptensLegemiddel,reseptensPasient,reit));
                                                 System.out.println("Godkjent!");
                                             }catch (UlovligUtskrift e){
-                                                System.out.println(e.getMessage());
+                                                System.out.println("misslykket! "+e.getMessage());
                                             }
                                             break;
                                         case 1://Millitaer
                                             System.out.println("Hvor mange? (Reit)");
                                             reit = input.nextInt();
                                             try{//Ikke sikkert legen kan skriv eut da legemidde kan være narkotisk
-                                                reseptensSkrivendeLege.skrivMillitaerResept(reseptensLegemiddel,reseptensPasient,reit);
+                                                reseptensPasient.leggTilResept(reseptensSkrivendeLege.skrivMillitaerResept(reseptensLegemiddel,reseptensPasient,reit));
                                                 System.out.println("Godkjent!");
                                             }catch (UlovligUtskrift e){
                                                 System.out.println(e.getMessage());
@@ -120,7 +121,7 @@ public class Main {
                                         case 2: //P
 
                                             try{//Ikke sikkert legen kan skriv eut da legemidde kan være narkotisk
-                                                reseptensSkrivendeLege.skrivPResept(reseptensLegemiddel,reseptensPasient);
+                                                reseptensPasient.leggTilResept(reseptensSkrivendeLege.skrivPResept(reseptensLegemiddel,reseptensPasient));
                                                 System.out.println("Godkjent!");
                                             }catch (UlovligUtskrift e){
                                                 System.out.println(e.getMessage());
@@ -130,7 +131,7 @@ public class Main {
                                             System.out.println("Hvor mange? (Reit)");
                                             reit = input.nextInt();
                                             try{//Ikke sikkert legen kan skriv eut da legemidde kan være narkotisk
-                                                reseptensSkrivendeLege.skrivBlaaResept(reseptensLegemiddel,reseptensPasient,reit);
+                                                reseptensPasient.leggTilResept(reseptensSkrivendeLege.skrivBlaaResept(reseptensLegemiddel,reseptensPasient,reit));
                                                 System.out.println("Godkjent!");
                                             }catch (UlovligUtskrift e){
                                                 System.out.println(e.getMessage());
@@ -155,9 +156,11 @@ public class Main {
                         system.velgResept(pasient);
                         //Over skrives så en enkel verson av pasientens resepter. Velg hvilken resept ogsp med ID.
                         break;
-                    case 3: //Skrive ut statistikk.
-                        System.out.println("Antall legemiddler med Vanedannende legemiddel er: "+ system.statistikkAntallResepterVanedannende());
-                        System.out.println("Antall legemiddler med Narkotisk legemiddel er: "+ system.statistikkAntallResepterNarkotisk());
+
+                        case 3: //Skrive ut statistikk.
+                            System.out.println("--- STATISTIKK ---");
+                            System.out.println("Antall legemiddler med Vanedannende legemiddel er: "+ system.statistikkAntallResepterVanedannende());
+                            System.out.println("Antall legemiddler med Narkotisk legemiddel er: "+ system.statistikkAntallResepterNarkotisk());
                         break;
                     case 4: //Skriv alle data til fil.
                         break;
