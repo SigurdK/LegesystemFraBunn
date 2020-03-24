@@ -49,4 +49,8 @@ public class Spesialist extends Lege implements Godkjenningsfritak{
         utskrevedeResepter.leggTil(resepten);
         return resepten;
     }
+    @Override
+    public String printTilFil(){
+        return navn+","+kontrollId;
+    }
 }

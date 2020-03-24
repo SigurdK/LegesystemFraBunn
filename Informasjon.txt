@@ -1,20 +1,343 @@
 # Pasienter (navn, fnr)
-Jens Hans Olsen,11111143521
-Petrolina Swiq,24120099343
-Sven Svendsen,10111224244
-Juni Olsen,21049563451
+Fornavn Etternavn,20169916590
+Vladimir Shakun,20537634063
+Miroslaw Stefanski,14517407546
+Volodimyr Trots,25136686728
+Arkadiusz Orlicki,22748658674
+Igor Churbasov,29600576221
+David Holland,30294750666
+Jacobus Johannes Pronk,30032477003
+Frank Larsen,27855517762
+Erik Juhl Jensen,12583450960
+Elmo Dibiagio,15870155487
+Friedrich Hørl,29921255535
+Sigfus Jonsson,23753237546
+Stefan Heck,21136847667
+Leif Fredriksen,28268527621
+Francis Robert Stevenson,26154722987
+Dieter Freitag,14956730498
+øystein Holmen,21237670079
+Ulrich Heuberger,20162340170
+Susan Gayle Nordskog,16840888713
+Iury Litovchenco,11335557310
+Janet Bakke,24736233801
+Brian Anthony Farrelly,11184777122
+Stephen Alexander Faulkner,25343359751
+Damian Wood,29611171585
+Chris Skadberg,12720681401
+Robert Preller,12967921347
+Tage Bengt Olsson,16104573272
+Ove Rolf Oslund,10177383016
+Kenneth Westerlund,12249363007
+John Stewart Ball,15472173857
+Roland østrand,14234193515
+Matthias Peter,27494980869
+Anita Simon,13913336336
+Daniel Scheidegger,20073325559
+Klas Eriksson,22596579347
+Flemming Ryttertoft,18400030340
+Steven Gene Wold,14958820692
+Clain Laila Mc,20146566310
+Bent Brian Velling,13028973504
+Jacques Grosfils,19282714318
+Kent øke Strandberg,27765381532
+Alex Gordon,27570960780
+Zeljko Pinjusic,14677802286
+Michel Verheughe,21841903845
+Hans Jensen-Fangel,24392369893
+Bernhard Røsch,21167294058
+Dolores F. Lindholm Kinck,22487132725
+Patrice Bardoz,19954569726
+Gerald Markeson,14941366908
+Gerald Osen,21758300298
+Joerg Goetzinger,11582957134
+Malin Mutka,29221239486
+Allen Gwyn Coxe,16337719230
+Peter Grun,21786782967
+Andy Hyde,11046511913
+Sandra V. Arango Charry,25679033333
+Guillermo Issacs Aguilar Moreno,29499931803
+Pekka Lehtonen,20323638579
+Inger Stemland,11886562951
+Alfred Betti,17947882067
+Knut Terje Thomassen,21802407922
+Ole Kristian Bøe,17072774415
+Helge Lorentsen,30903336218
+øsmund Johannes Hellesøy,20410000501
+Gunnar Berntin Johansen,27855052229
+Hans Christian Hermansen,23433229436
+Aina Elisabeth Ellingsen,19984962393
+Arild Breilid,30708214138
+Torstein Tidemann,20165886015
+John Ivar Bjørkaas,23272443546
+Per Erik Mikalsen,10873789696
+Hans Kristian Ringvold,11209961716
+Jan Erik Nilssen,11142347439
+Odd Karsten Vøga,23639438826
+Stig Eriksen,27655799797
+Are Mikal Opsanger,21394424481
+Brynjar Kvanlid,27128880740
+Frode Ellingsen,25925163674
+Finn Audun Hørstad,21663584064
+Asbjørn Djupdal,23170084997
+Erik N Hardeng,22699069515
+Morten Olsen,20207710146
+Adele Berg Wasenden,24072304951
+Egil Sylte,30317580437
+Dag N Ness,14616379265
+øivind Paul Bakklund,13423175660
+Jo Morten Eide,16830434883
+Magne Møhre,17390851064
 # Legemidler (navn,type,pris,virkestoff,[styrke])
-Predizol,narkotisk,450,75,8
-Paralgin Forte,vanedannende,65,400,5
-Placebo Pianissimo,vanlig,10,0
-Ibux,vanlig,240,200
+natriumfluorid,vanlig,709.6757716058461,428.05126343015183
+natriummonofluorofosfat,vanlig,1061.1344012593356,559.9445911710575
+oaflur,vanedannende,622.6469052243087,277.8892457565651,5
+tinnfluorid,narkotisk,1161.5868549864306,452.6077472376364,0
+kombinasjoner,narkotisk,213.78907373350523,451.147798943133,5
+hydrogenperoksid,narkotisk,1127.4789077911694,264.463203346841,10
+klorheksidin,narkotisk,1077.2151801060286,871.741174099244,3
+amfotericin B,narkotisk,221.7121659346114,726.8994746823491,6
+polynoksylin,vanlig,232.52820163262652,630.8397435414265
+domifen,vanedannende,155.86819826162687,530.7035424048302,8
+oksykinolin,vanedannende,536.8346101245372,736.7449389407051,10
+neomycin,vanlig,1252.700022214679,546.7300920010557
+mikonazol,vanedannende,510.4777573033426,783.0423294150947,10
+natamycin,narkotisk,455.75842630077557,492.03305470409896,9
+diverse,vanlig,848.2288041790432,796.3557844878794
+heksetidin,vanedannende,1131.44658604536,626.7738086430918,4
+tetracyklin,vanedannende,1159.5087545455133,293.65916913218416,2
+benzoksoniumklorid,vanedannende,1296.4566332136678,847.8349617206811,2
+tibezoniumjodid,narkotisk,388.1836537359772,22.65759341220933,5
+mepartricin,vanedannende,666.9736560782608,158.55763879801702,3
+metronidazol,vanedannende,1099.6703195561315,151.50169058663153,2
+klotrimazol,vanedannende,164.72550337592946,340.9052170627964,8
+natriumperborat,vanedannende,212.29838490827134,126.67149988623528,3
+kortetracyklin,vanedannende,722.0535058295432,548.3506902625262,3
+doksycyklin,vanedannende,727.2236540620383,785.8855515516815,4
+minocyklin,vanlig,734.9381430647778,552.5036969049936
+triamcinolon,vanedannende,764.6781194538381,957.0810524143762,5
+dexametason,narkotisk,908.2465469609394,706.0927048743193,10
+hydrokortison,vanlig,530.301690694854,824.5938939275114
+adrenalin,vanedannende,1292.800132202214,700.3711364601465,7
+benzydamin,vanlig,1195.832394302972,245.6127374718241
+acetylsalisylsyre,vanedannende,212.64973328219463,298.40637920360814,2
+adrenalon,vanedannende,556.6422764419292,632.5823734350929,0
+amlexanox,vanlig,770.4480548183058,104.0972000524286
+bekaplermin,narkotisk,942.796521715608,145.57201179998606,3
+diverse,vanlig,220.8569659675665,393.7417212323659
+magnesiumkarbonat,narkotisk,703.1912328641737,472.5570426968118,0
+magnesiumoksid,vanlig,1029.3907320728035,10.783386736657006
+magnesiumperoksid,narkotisk,1131.404321569786,827.5820500032319,0
+magnesiumhydroksid,narkotisk,522.2867556378216,101.96908943834646,4
+magnesiumsilikat,narkotisk,426.20608227444,837.5700327401382,1
+kombinasjoner,narkotisk,586.702391085496,872.4638650723615,10
+aluminiumhydroksid,vanlig,233.27891430218813,320.16475773352624
+algeldrat,vanedannende,1139.5614735970169,994.3230794427076,2
+aluminiumfosfat,vanedannende,236.27449820543384,413.8859669572418,6
+dihydroksyaluminium natriumkarbonat,vanlig,749.5748598181192,666.2912466657438
+aluminiumacetoacetat,vanlig,258.72466195262575,954.5289367455246
+aloglutamol,narkotisk,1278.1170176611968,604.0661835679612,7
+aluminiumglysinat,vanlig,328.32088096095254,971.0333768358685
+kombinasjoner,vanlig,378.59248239192266,635.0125236065269
+kalsiumkarbonat,vanedannende,804.6649070512597,297.89865592731206,10
+kalsiumsilikat,narkotisk,307.3095162085889,458.54933076692777,7
+kombinasjoner,narkotisk,1167.3956061216272,965.085473093835,8
+ordinære saltkombinasjoner,vanedannende,177.37330645767787,776.3576492482617,0
+magaldrat,vanlig,1049.7051545353438,248.3623488578515
+almagat,vanlig,1166.9322576262562,739.6279324854145
+hydrotalcit,vanlig,299.4188858151265,994.3556399877629
+almasilat,vanedannende,832.9594257734993,917.0115292128651,1
+magaldrat og midler mot flatulens,vanlig,853.8353541591734,153.79709153513738
+ordinære saltkombinasjoner og midler mot flatulens,narkotisk,460.24914382282253,363.9368301216411,3
+cimetidin,narkotisk,1059.6881170889087,782.0381457815477,7
+ranitidin,vanlig,1089.0055364679752,510.25186510556875
+famotidin,vanlig,829.3132505082134,730.321966933497
+nizatidin,vanedannende,1339.802585955224,585.3501374320285,8
+niperotidin,narkotisk,103.78592107674491,6.975251091800161,0
+roxatidin,vanedannende,876.2339365602836,467.8397254116609,10
+ranitidinvismutsitrat,vanedannende,787.1730012823527,427.06273795681165,10
+lafutidin,vanlig,600.5984111405837,409.06423213054376
+misoprostol,narkotisk,730.3991170967339,304.13466375928755,6
+enprostil,narkotisk,1209.8504473999774,439.6292035882693,8
+omeprazol,vanedannende,625.7996660217525,992.0419313320081,7
+pantoprazol,vanedannende,1035.6911926588061,984.8020687515877,0
+lansoprazol,vanedannende,598.616852931611,536.3535842153797,6
+rabeprazol,narkotisk,665.0473101454983,714.5508455529239,8
+esomeprazol,vanlig,1136.9936498587047,868.1427010715756
+dekslansoprazol,vanlig,262.0445502960599,897.288758745419
+dexrabeprazol,narkotisk,981.0774960595571,66.23492365569223,6
+vonoprazan,narkotisk,1299.246526883197,168.17763116172483,6
+karbenoxolon,vanlig,454.11483009474455,614.8169120007348
+sukralfat,vanedannende,830.8498663792005,761.0105570683271,0
+pirenzepin,narkotisk,584.1567038054934,829.5637358924346,7
+metiosulfoniumklorid,vanlig,737.3301700525435,244.86995108415059
+vismut subsitrat,vanlig,507.14035532456353,406.0109781066982
+proglumid,vanedannende,1240.1435405407476,756.2113719083368,7
+gefarnat,narkotisk,989.4069013210351,288.26105216314284,2
+sulglikotid,vanedannende,989.1368204387637,215.68966143595733,0
+acetoxolon,vanedannende,936.1386275755765,304.5116078109094,8
+zolimidin,vanedannende,647.3096578008989,934.7770003943472,0
+troxipid,vanedannende,468.60248715348376,724.2705326855775,3
+vismut subnitrat,vanedannende,1164.990949666083,159.1508234187642,6
+alginsyre,vanedannende,636.2156280793095,318.3667718340539,1
+rebamipid,vanlig,561.8278608301445,832.5214041976014
+Koronavaksine,vanlig,40000.0,139.23
+oksyfencyklimin,vanlig,948.7031352544893,273.25692720015945
+kamylofin,narkotisk,990.3407324071909,941.6220317540958,1
+mebeverin,vanedannende,331.5836088019203,403.9503280490946,2
+trimebutin,vanlig,887.526391178493,120.53744698830089
+rociverin,vanlig,362.7782485052556,889.4439862147024
+dicykloverin,narkotisk,117.84305938638944,136.8972958213206,2
+diheksyverin,vanlig,214.55818887383035,308.54786825164535
+difemerin,vanlig,1249.3638775888257,521.1382416396889
+piperidolat,vanedannende,746.7023216244155,205.95046118934843,1
+benzilon,vanedannende,828.021984178363,201.6575780255271,2
+glykopyrronbromid,narkotisk,810.0271453339743,905.4675891348644,9
+oksyfenon,narkotisk,1303.1543644104731,97.28505900146753,0
+pentienat,vanlig,995.7090420150234,407.9627266460897
+propantelin,narkotisk,502.06669196664046,584.0965784905216,9
+otiloniumbromid,vanedannende,1038.0551523959139,901.250761770133,0
+metantelin,vanedannende,291.8511114753506,807.5655768784972,6
+tridiheksetyl,vanedannende,1298.3969881180399,169.32671068093438,9
+isopropamid,narkotisk,1326.3490307283157,282.55664706094143,5
+heksocyklum,vanlig,666.3378867823587,486.778269189743
+poldon,vanedannende,455.29945540297786,686.1855750020188,10
+mepenzolat,vanedannende,805.3271287894103,257.47988200192196,6
+bevon,vanlig,236.3354713155246,145.27131651399947
+pipenzolon,narkotisk,723.5377631623841,179.65348664377836,5
+difemanil,vanlig,350.10785451330855,612.158418511956
+(2-benzhydryloksyetyl)dietylmetylammonium jodid,vanedannende,573.7769967944008,41.009245600902986,2
+tiemoniumjodid,vanedannende,1025.6872755029372,673.8511522022139,10
+prifiniumbromid,narkotisk,996.3656794596309,700.7012801318987,8
+timepidiumbromid,narkotisk,675.7176689387044,970.4901476647434,6
+fenpiverin,narkotisk,1125.6664700820008,989.2055062427613,8
+dimetylaminopropionylfentiazin,vanedannende,1343.0963418392632,410.03608910248727,4
+nikofetamid,vanlig,937.6432531268911,340.9422652951842
+tiropramid,vanedannende,115.8963288916747,888.2936972205009,3
+papaverin,vanedannende,1230.9091094606904,601.8560717530529,9
+drotaverin,narkotisk,878.5444257901913,988.9036956628184,4
+moxaverin,vanedannende,751.0328283928113,601.5129318041296,8
+alosetron,vanedannende,540.2987866356103,19.26371822825477,5
+cilansetron,vanedannende,251.79151107696714,193.41928796357098,3
+fenpipran,narkotisk,304.594621568107,894.6582840998553,2
+diisopromin,vanlig,1020.9969387165766,336.23113392945845
+klorbenzoxamin,vanlig,594.5201977446061,184.98611941711155
 # Leger (navn,kontrollid / 0 hvis vanlig lege)
-Dr. Cox,0
-Dr. Wilson,0
-Dr. House,12345
-Dr. Hillestad Lovold,0
-# Resepter (legemiddelNummer,legeNavn,pasientID,type,[reit])
-1,Dr. Cox,2,hvit,7
-2,Dr. Hillestad Lovold,3,blaa,1000
-0,Dr. House,1,millitaer,12
-3,Dr. Hillestad Lovold,3,p,
+Annika Willlock Olstad,864
+Christoffer Bjelke,0
+Daniel Clemeth Bjerkeland,0
+Henrik Heiberg,0
+Jaime Løve Hansen,0
+Johannes Broch-Due,0
+Marlen Jarholt,0
+Peter Kristiansen,301
+Sindre Ask Vestaberg,0
+Tobias Paulsen,0
+Vedangini Sahajpal,977
+# Resepter (legemiddelNummer,legeNavn,pasientID,type,[reit])0,Annika Willlock Olstad,Brian Anthony Farrelly,millitaer,742
+1,Annika Willlock Olstad,Steven Gene Wold,hvit,249
+7,Annika Willlock Olstad,Volodimyr Trots,hvit,958
+13,Annika Willlock Olstad,Jo Morten Eide,p,
+15,Annika Willlock Olstad,øivind Paul Bakklund,millitaer,533
+16,Annika Willlock Olstad,Igor Churbasov,blaa,497
+19,Annika Willlock Olstad,Dieter Freitag,p,
+20,Annika Willlock Olstad,Sigfus Jonsson,millitaer,90
+23,Annika Willlock Olstad,Asbjørn Djupdal,hvit,652
+25,Annika Willlock Olstad,øivind Paul Bakklund,millitaer,56
+27,Annika Willlock Olstad,Sigfus Jonsson,p,
+28,Annika Willlock Olstad,Morten Olsen,millitaer,627
+29,Annika Willlock Olstad,John Stewart Ball,hvit,865
+37,Annika Willlock Olstad,Daniel Scheidegger,hvit,953
+38,Annika Willlock Olstad,Brian Anthony Farrelly,p,
+40,Annika Willlock Olstad,Odd Karsten Vøga,blaa,966
+47,Annika Willlock Olstad,Knut Terje Thomassen,p,
+50,Annika Willlock Olstad,Susan Gayle Nordskog,hvit,362
+62,Annika Willlock Olstad,Per Erik Mikalsen,blaa,404
+65,Annika Willlock Olstad,Fornavn Etternavn,hvit,672
+66,Annika Willlock Olstad,Kenneth Westerlund,hvit,5
+67,Annika Willlock Olstad,Gunnar Berntin Johansen,hvit,764
+77,Annika Willlock Olstad,Stephen Alexander Faulkner,millitaer,328
+79,Annika Willlock Olstad,Per Erik Mikalsen,p,
+81,Annika Willlock Olstad,Stig Eriksen,blaa,301
+82,Annika Willlock Olstad,Allen Gwyn Coxe,hvit,786
+83,Annika Willlock Olstad,Flemming Ryttertoft,blaa,736
+84,Annika Willlock Olstad,John Ivar Bjørkaas,blaa,508
+85,Annika Willlock Olstad,Roland østrand,millitaer,99
+86,Annika Willlock Olstad,Dieter Freitag,hvit,307
+90,Annika Willlock Olstad,Guillermo Issacs Aguilar Moreno,hvit,556
+99,Annika Willlock Olstad,Alfred Betti,millitaer,951
+104,Annika Willlock Olstad,Steven Gene Wold,blaa,203
+4,Christoffer Bjelke,Daniel Scheidegger,millitaer,126
+5,Christoffer Bjelke,Zeljko Pinjusic,blaa,764
+9,Christoffer Bjelke,Odd Karsten Vøga,blaa,590
+12,Christoffer Bjelke,Bernhard Røsch,blaa,341
+26,Christoffer Bjelke,øivind Paul Bakklund,millitaer,150
+31,Christoffer Bjelke,Adele Berg Wasenden,millitaer,797
+32,Christoffer Bjelke,Adele Berg Wasenden,hvit,288
+35,Christoffer Bjelke,Elmo Dibiagio,blaa,409
+39,Christoffer Bjelke,Ove Rolf Oslund,hvit,6
+41,Christoffer Bjelke,Allen Gwyn Coxe,millitaer,516
+45,Christoffer Bjelke,Asbjørn Djupdal,blaa,660
+46,Christoffer Bjelke,Zeljko Pinjusic,p,
+58,Christoffer Bjelke,Morten Olsen,p,
+61,Christoffer Bjelke,Arild Breilid,p,
+74,Christoffer Bjelke,Frode Ellingsen,millitaer,771
+87,Christoffer Bjelke,Alex Gordon,p,
+91,Christoffer Bjelke,øsmund Johannes Hellesøy,blaa,426
+97,Christoffer Bjelke,øystein Holmen,blaa,648
+98,Christoffer Bjelke,Allen Gwyn Coxe,p,
+101,Christoffer Bjelke,Adele Berg Wasenden,p,
+102,Christoffer Bjelke,Arild Breilid,p,
+105,Christoffer Bjelke,Klas Eriksson,millitaer,281
+2,Marlen Jarholt,Arild Breilid,hvit,195
+8,Marlen Jarholt,Hans Kristian Ringvold,blaa,621
+17,Marlen Jarholt,Per Erik Mikalsen,millitaer,949
+21,Marlen Jarholt,Leif Fredriksen,p,
+30,Marlen Jarholt,Torstein Tidemann,hvit,26
+55,Marlen Jarholt,Erik N Hardeng,millitaer,26
+59,Marlen Jarholt,Stig Eriksen,hvit,877
+60,Marlen Jarholt,øivind Paul Bakklund,millitaer,15
+75,Marlen Jarholt,Erik N Hardeng,p,
+78,Marlen Jarholt,David Holland,hvit,843
+80,Marlen Jarholt,Andy Hyde,hvit,649
+88,Marlen Jarholt,Sigfus Jonsson,p,
+92,Marlen Jarholt,Asbjørn Djupdal,blaa,225
+93,Marlen Jarholt,Kent øke Strandberg,hvit,672
+94,Marlen Jarholt,Hans Kristian Ringvold,blaa,626
+96,Marlen Jarholt,John Ivar Bjørkaas,millitaer,803
+100,Marlen Jarholt,Jo Morten Eide,blaa,501
+103,Marlen Jarholt,Elmo Dibiagio,p,
+3,Peter Kristiansen,Kent øke Strandberg,p,
+6,Peter Kristiansen,Klas Eriksson,p,
+10,Peter Kristiansen,Inger Stemland,millitaer,553
+11,Peter Kristiansen,Inger Stemland,millitaer,341
+14,Peter Kristiansen,Arild Breilid,blaa,675
+18,Peter Kristiansen,Daniel Scheidegger,blaa,17
+22,Peter Kristiansen,Malin Mutka,p,
+24,Peter Kristiansen,Allen Gwyn Coxe,hvit,844
+33,Peter Kristiansen,Igor Churbasov,p,
+34,Peter Kristiansen,øsmund Johannes Hellesøy,hvit,513
+36,Peter Kristiansen,Frode Ellingsen,blaa,149
+42,Peter Kristiansen,Asbjørn Djupdal,p,
+43,Peter Kristiansen,øivind Paul Bakklund,blaa,741
+44,Peter Kristiansen,Allen Gwyn Coxe,millitaer,19
+48,Peter Kristiansen,Brynjar Kvanlid,p,
+49,Peter Kristiansen,Miroslaw Stefanski,blaa,785
+51,Peter Kristiansen,Dolores F. Lindholm Kinck,p,
+52,Peter Kristiansen,Steven Gene Wold,hvit,694
+53,Peter Kristiansen,Clain Laila Mc,hvit,203
+54,Peter Kristiansen,Bernhard Røsch,p,
+56,Peter Kristiansen,Ulrich Heuberger,blaa,476
+57,Peter Kristiansen,Dolores F. Lindholm Kinck,blaa,340
+63,Peter Kristiansen,Bernhard Røsch,hvit,982
+64,Peter Kristiansen,Kenneth Westerlund,blaa,210
+68,Peter Kristiansen,Erik N Hardeng,blaa,774
+69,Peter Kristiansen,Bernhard Røsch,hvit,444
+70,Peter Kristiansen,Adele Berg Wasenden,blaa,434
+71,Peter Kristiansen,Per Erik Mikalsen,hvit,444
+72,Peter Kristiansen,Ove Rolf Oslund,blaa,19
+73,Peter Kristiansen,Friedrich Hørl,millitaer,984
+76,Peter Kristiansen,Anita Simon,millitaer,164
+89,Peter Kristiansen,Klas Eriksson,millitaer,275
+95,Peter Kristiansen,Hans Christian Hermansen,p,
+106,Peter Kristiansen,Hans Kristian Ringvold,p,

@@ -82,6 +82,9 @@ public class Lege implements Comparable<Lege>{
             return resepten;
         }
     }
+    public String printTilFil(){
+        return navn+","+0;
+    }
 
     public String toString(){
         return "\nLegens navn: "+this.hentNavn();

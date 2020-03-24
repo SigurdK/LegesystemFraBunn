@@ -47,6 +47,10 @@ public class Pasient {
             resept.skrivReseptLiten();
         }
     }
+    public String printTilFil(){
+
+        return this.navn+","+this.fodselsnummer;
+    }
     public String toString(){
         return "\nPasientens navn: "+navn+"\nPasientens fodselsnummer: "+fodselsnummer+"\nPasientens ID: "+ ID+"\nAntall Resepter: "+ this.antallResepter();
     }

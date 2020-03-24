@@ -28,5 +28,6 @@ public abstract class Legemiddel {
     public void settNyPris(double nyPris){
         pris = nyPris;
     }
+    abstract public String printTilFil();
     abstract public String toString();
 }

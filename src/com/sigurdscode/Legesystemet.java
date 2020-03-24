@@ -16,6 +16,8 @@ import com.sigurdscode.resepter.Resept;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -294,6 +296,43 @@ public class Legesystemet {
             }
         }
         return teller;
+    }
+    public void lesTilFil(String filnavn) throws IOException {
+        File f = new File(filnavn+".txt");
+        if (f.createNewFile()) {
+            System.out.println("File created: " + f.getName());
+        } else {
+            System.out.println("File already exists.");
+        }
+        try {
+            PrintWriter pw = new PrintWriter(f);
+
+            pw.append("# Pasienter (navn, fnr)\n");
+
+            for (Pasient p : pasientene) {
+                pw.append(p.printTilFil()+ "\n");//Mekke egen til string hos pasient.
+            }
+            pw.append("# Legemidler (navn,type,pris,virkestoff,[styrke])\n");
+            for (Legemiddel l : legemiddlene) {
+                pw.append(l.printTilFil()+ "\n");//Mekke egen til string hos legemiddel.
+            }
+            pw.append("# Leger (navn,kontrollid / 0 hvis vanlig lege)\n");
+            for (Lege le : legene) {
+                pw.append(le.printTilFil()+ "\n");//Mekke egen til string hos legemiddel.
+            }
+            pw.append("# Resepter (legemiddelNummer,legeNavn,pasientID,type,[reit])");
+            for (Lege le : legene) {
+                Lenkeliste<Resept> resepter = le.hentReseptListe();
+                for (Resept r : resepter) {
+                    pw.append(r.printTilFil() + "\n");//Mekke egen til string hos legemiddel.
+                }
+            }
+
+            pw.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
     }
     public void leseFraFil(String filnavn) throws Exception{
 

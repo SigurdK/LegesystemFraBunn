@@ -11,6 +11,10 @@ public class Narkotisk extends Legemiddel {
         return styrke;
     }
     @Override
+    public String printTilFil(){
+        return navn+",narkotisk"+","+pris+","+virkestoff+","+styrke;
+    }
+    @Override
     public String toString(){
         return "\nLEGEMIDDEL\nType: Narkotisk"+"\nNavn: "+navn+"\nID: "+Id+"\nPris: "+pris+"\nVirkestoff (mg): "+virkestoff+"\nStyrke: "+styrke;
     }

@@ -163,6 +163,12 @@ public class Main {
                             System.out.println("Antall legemiddler med Narkotisk legemiddel er: "+ system.statistikkAntallResepterNarkotisk());
                         break;
                     case 4: //Skriv alle data til fil.
+                        //lage en fil med navnet som tastes inn.
+                        System.out.println("Hva skal filen hete?");
+                        input.nextLine();
+                        String filnavn= input.nextLine();
+
+                        system.lesTilFil(filnavn);
                         break;
 
                 }

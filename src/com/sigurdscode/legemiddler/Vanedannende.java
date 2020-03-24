@@ -11,6 +11,11 @@ public class Vanedannende extends Legemiddel{
     public int hentVanedannendeStyrke(){
         return styrke;
     }
+    @Override
+    public String printTilFil(){
+        return navn+",vanedannende"+","+pris+","+virkestoff+","+styrke;
+    }
+    @Override
     public String toString(){
         return "\nLEGEMIDDEL\nType: Vanedannende"+"\nNavn: "+navn+"\nID: "+Id+"\nPris: "+pris+"\nVirkestoff (mg): "+virkestoff+"\nStyrke: "+styrke;
     }
