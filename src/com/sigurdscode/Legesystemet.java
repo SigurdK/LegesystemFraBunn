@@ -18,8 +18,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Legesystemet {
 
@@ -290,6 +292,23 @@ public class Legesystemet {
             }
         }
         return teller;
+
+    }
+    public void statistikkAntallResepterNarkotiskLeger(){
+        Set<Lege> leger = new HashSet<Lege>(); // Bruker et sett for at samme elementer ikke skal kunne legges inn
+        for (Lege l : legene){
+            Lenkeliste<Resept> le = l.hentReseptListe();
+            for(Resept r : le){
+                Legemiddel legemiddel = r.hentLegemiddel();
+                if(Narkotisk.class.equals(legemiddel.getClass())){
+                    leger.add(l);
+                }
+            }
+        }
+        for (Lege leg : leger){
+            System.out.println("\nLege som har skrevet resept på narkotisk legemiddel: "+leg.hentNavn());
+            System.out.println("Antall resepter med narkotisk legemiddel: "+leg.narkoTeller());
+        }
     }
     public void lesTilFil(String filnavn) throws IOException {
         File f = new File(filnavn+".txt");
@@ -304,21 +323,21 @@ public class Legesystemet {
             pw.append("# Pasienter (navn, fnr)\n");
 
             for (Pasient p : pasientene) {
-                pw.append(p.printTilFil()+ "\n");//Mekke egen til string hos pasient.
+                pw.append(p.printTilFil()+ "\n");
             }
             pw.append("# Legemidler (navn,type,pris,virkestoff,[styrke])\n");
             for (Legemiddel l : legemiddlene) {
-                pw.append(l.printTilFil()+ "\n");//Mekke egen til string hos legemiddel.
+                pw.append(l.printTilFil()+ "\n");
             }
             pw.append("# Leger (navn,kontrollid / 0 hvis vanlig lege)\n");
             for (Lege le : legene) {
-                pw.append(le.printTilFil()+ "\n");//Mekke egen til string hos legemiddel.
+                pw.append(le.printTilFil()+ "\n");
             }
             pw.append("# Resepter (legemiddelNummer,legeNavn,pasientID,type,[reit])\n");
             for (Lege le : legene) {
                 Lenkeliste<Resept> resepter = le.hentReseptListe();
                 for (Resept r : resepter) {
-                    pw.append(r.printTilFil() + "\n");//Mekke egen til string hos legemiddel.
+                    pw.append(r.printTilFil() + "\n");
                 }
             }
 

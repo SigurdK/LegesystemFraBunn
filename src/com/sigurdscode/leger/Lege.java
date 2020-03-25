@@ -28,6 +28,16 @@ public class Lege implements Comparable<Lege>{
             resept.skrivReseptLiten();
         }
     }
+    public int narkoTeller(){
+        int teller = 0;
+        for (Resept resept : utskrevedeResepter){
+            if (resept.hentLegemiddel() instanceof Narkotisk){
+                teller++;
+            }
+        }
+        return teller;
+    }
+
 
     public void skrivReseptListe(){
         for (Resept resept : utskrevedeResepter){

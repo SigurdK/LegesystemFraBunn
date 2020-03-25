@@ -160,6 +160,7 @@ public class Main {
                             System.out.println("--- STATISTIKK ---");
                             System.out.println("Antall legemiddler med Vanedannende legemiddel er: "+ system.statistikkAntallResepterVanedannende());
                             System.out.println("Antall legemiddler med Narkotisk legemiddel er: "+ system.statistikkAntallResepterNarkotisk());
+                            system.statistikkAntallResepterNarkotiskLeger();
                         break;
                     case 4: //Skriv alle data til fil.
                         //lage en fil med navnet som tastes inn.
